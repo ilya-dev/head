@@ -1,0 +1,17 @@
+{
+    "name": "ilya/head",
+    "description": "Head is a micro event dispatcher for PHP",
+    "require-dev": {
+        "phpspec/phpspec": "~2"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ilya S",
+            "email": "public.ilya.s@gmail.com"
+        }
+    ],
+    "require": {
+
+    }
+}
