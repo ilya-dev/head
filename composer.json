@@ -11,7 +11,9 @@
             "email": "public.ilya.s@gmail.com"
         }
     ],
-    "require": {
-
+    "autoload": {
+        "psr-4": {
+            "Head\\": "src/Head/"
+        }
     }
 }
