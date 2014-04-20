@@ -5,4 +5,4 @@ suites:
     namespace: Head
     src_path: src
     spec_path: spec
-    spec_prefix: spec
+    spec_prefix: Spec
