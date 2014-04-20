@@ -1,0 +1,8 @@
+formatter.name: pretty
+
+suites:
+  head_suite:
+    namespace: Head
+    src_path: src
+    spec_path: spec
+    spec_prefix: spec
