@@ -1,8 +1,8 @@
 <?php namespace Head;
 
-class Head {
+class Head implements Contract {
 
-
+    use Behaviour;
 
 }
 
