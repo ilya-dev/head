@@ -12,22 +12,20 @@ class HeadSpec extends ObjectBehavior {
 
     function it_registers_an_event_handler()
     {
-        $this->listen('foo', function()
-        {
-
-        });
+        $this->listen('foo', 'trim');
     }
 
     function it_fires_an_event()
     {
         $this->listen('foo', function($exception)
         {
-            throw new $exception;
+            throw $exception;
         });
 
-        $this->shouldThrow($e = 'LogicException')->duringFire('foo', [$e]);
+        $this->shouldThrow('LogicException')->duringFire('foo', [
+            new \LogicException
+        ]);
     }
-
 
     function it_throws_an_exception_if_an_event_does_not_exist()
     {
