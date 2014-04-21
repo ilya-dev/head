@@ -7,7 +7,6 @@ Head is a micro event dispatcher for PHP.
 ### Create
 
 ```php
-
 $head = new \Head\Head;
 
 // or
@@ -19,13 +18,11 @@ class MyOwnHead implements \Head\Contract {
     // do what you want
 
 }
-
 ```
 
 ### Attach
 
 ```php
-
 $head->listen('foo', function($foo, $bar, $baz)
 {
     // do something
@@ -36,15 +33,12 @@ $head->listen('foo', function($foo, $bar, $baz)
 // $head->listen('foo', ['SomeClass', 'someMethod');
 // $head->listen('foo', [new SomeClass, 'someMethod']);
 // and so on...
-
 ```
 
 ### Fire
 
 ```php
-
 $head->fire('my_epic_event', ['pass', 'the', 'context']);
-
 ```
 
 ## License
