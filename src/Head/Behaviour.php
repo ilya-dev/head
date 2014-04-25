@@ -4,7 +4,6 @@ trait Behaviour {
 
     /**
      * Event handlers.
-     * Stored as {event} => [{handler}, ...]
      *
      * @var array
      */

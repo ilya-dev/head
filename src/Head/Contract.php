@@ -3,7 +3,7 @@
 interface Contract {
 
     /**
-     * Listen to an event / Attach an event listener
+     * Attach an event handler.
      *
      * @param string $event
      * @param callable $handler
@@ -12,7 +12,7 @@ interface Contract {
     public function listen($event, callable $handler);
 
     /**
-     * Fire all event handlers associated with the given name
+     * Fire off all event handlers associated with the given name.
      *
      * @param string $event
      * @param array $context
