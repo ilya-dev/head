@@ -1,7 +1,6 @@
 <?php namespace Spec\Head;
 
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
 class HeadSpec extends ObjectBehavior {
 
@@ -30,6 +29,15 @@ class HeadSpec extends ObjectBehavior {
     function it_throws_an_exception_if_an_event_does_not_exist()
     {
         $this->shouldThrow('UnexpectedValueException')->duringFire('bar');
+    }
+
+    function it_unregisters_an_event()
+    {
+        $this->listen('foo', 'error_reporting');
+
+        $this->shouldNotThrow('UnexpectedValueException')->duringFire('foo');
+        $this->off('foo');
+        $this->shouldThrow('UnexpectedValueException')->duringFire('foo');
     }
 
 }

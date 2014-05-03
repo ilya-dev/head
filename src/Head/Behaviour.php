@@ -35,5 +35,16 @@ trait Behaviour {
         }
     }
 
+    /**
+     * Unregister all event handlers for a specific event.
+     *
+     * @param string $event
+     * @return void
+     */
+    public function off($event)
+    {
+        unset ($this->handlers[$event]);
+    }
+
 }
 
