@@ -12,7 +12,7 @@ interface Contract {
     public function listen($event, callable $handler);
 
     /**
-     * Fire off all event handlers associated with the given name.
+     * Fire off all event handlers for a specific event.
      *
      * @param string $event
      * @param array $context

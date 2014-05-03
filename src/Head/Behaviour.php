@@ -1,16 +1,22 @@
 <?php namespace Head;
 
+use UnexpectedValueException;
+
 trait Behaviour {
 
     /**
-     * Event handlers.
+     * The event handlers.
      *
      * @var array
      */
     protected $handlers = [];
 
     /**
-     * {@inheritdoc}
+     * Attach an event handler.
+     *
+     * @param string $event
+     * @param callable $handler
+     * @return void
      */
     public function listen($event, callable $handler)
     {
@@ -18,20 +24,22 @@ trait Behaviour {
     }
 
     /**
-     * {@inheritdoc}
+     * Fire off all event handlers for a specific event.
+     *
+     * @param string $event
+     * @param array $context
+     * @return void
      */
     public function fire($event, array $context = [])
     {
-        if ( ! isset($this->handlers[$event]))
+        if ( ! isset ($this->handlers[$event]))
         {
-            $message = "Event {$event} does not exist";
-
-            throw new \UnexpectedValueException($message);
+            throw new UnexpectedValueException("Event {$event} does not exist");
         }
 
         foreach ($this->handlers[$event] as $handler)
         {
-            \call_user_func_array($handler, $context);
+            call_user_func_array($handler, $context);
         }
     }
 
