@@ -47,11 +47,25 @@ trait Behaviour {
      * Unregister all event handlers for a specific event.
      *
      * @param string $event
+     * @param callable|null $handler
      * @return void
      */
-    public function off($event)
+    public function off($event, $handler = null)
     {
-        unset ($this->handlers[$event]);
+        if (is_null($handler))
+        {
+            unset ($this->handlers[$event]);
+
+            return null;
+        }
+
+        foreach ($this->handlers[$event] as $key => $eachHandler)
+        {
+            if ($handler === $eachHandler)
+            {
+                unset ($this->handlers[$event][$key]);
+            }
+        }
     }
 
 }
