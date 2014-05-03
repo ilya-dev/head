@@ -11,7 +11,7 @@ class HeadSpec extends ObjectBehavior {
 
     function it_registers_an_event_handler()
     {
-        $this->listen('foo', 'trim');
+        $this->listen('foo', 'Spec\Head\dummy_function');
     }
 
     function it_fires_an_event()
@@ -33,12 +33,17 @@ class HeadSpec extends ObjectBehavior {
 
     function it_unregisters_an_event()
     {
-        $this->listen('foo', 'error_reporting');
+        $this->listen('foo', 'Spec\Head\dummy_function');
 
         $this->shouldNotThrow('UnexpectedValueException')->duringFire('foo');
         $this->off('foo');
         $this->shouldThrow('UnexpectedValueException')->duringFire('foo');
     }
 
+}
+
+function dummy_function()
+{
+    // it does nothing, it's just a dummy
 }
 
