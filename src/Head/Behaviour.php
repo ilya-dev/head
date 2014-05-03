@@ -26,6 +26,7 @@ trait Behaviour {
     /**
      * Fire off all event handlers for a specific event.
      *
+     * @throws UnexpectedValueException
      * @param string $event
      * @param array $context
      * @return void
@@ -44,13 +45,13 @@ trait Behaviour {
     }
 
     /**
-     * Unregister all event handlers for a specific event.
+     * Unregister event handlers for a specific event.
      *
      * @param string $event
      * @param callable|null $handler
      * @return void
      */
-    public function off($event, $handler = null)
+    public function off($event, callable $handler = null)
     {
         if (is_null($handler))
         {
