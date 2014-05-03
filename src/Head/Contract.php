@@ -7,9 +7,10 @@ interface Contract {
      *
      * @param string $event
      * @param callable $handler
+     * @param mixed|null $context
      * @return void
      */
-    public function listen($event, callable $handler);
+    public function listen($event, callable $handler, $context = null);
 
     /**
      * Fire off all event handlers for a specific event.

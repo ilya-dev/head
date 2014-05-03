@@ -16,10 +16,16 @@ trait Behaviour {
      *
      * @param string $event
      * @param callable $handler
+     * @param mixed|null $context
      * @return void
      */
-    public function listen($event, callable $handler)
+    public function listen($event, callable $handler, $context = null)
     {
+        if ( ! is_null($context))
+        {
+            $handler = $handler->bindTo($context);
+        }
+
         $this->handlers[$event][] = $handler;
     }
 

@@ -14,6 +14,16 @@ class HeadSpec extends ObjectBehavior {
         $this->listen('foo', 'Spec\Head\dummy');
     }
 
+    function it_registers_an_event_handler_with_given_context()
+    {
+        $context = (object) ['foo' => 'bar'];
+
+        $this->listen('foo', function()
+        {
+            // $this->foo === 'bar'
+        }, $context);
+    }
+
     function it_fires_an_event()
     {
         $this->listen('foo', function($exception)
